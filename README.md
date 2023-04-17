@@ -7,6 +7,27 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+# Pasos a seguir para la instalacion de Laravel 10 con AdminLte
+
+- Crearemos un proyecto en laravel: laravel new juegoAdivinador
+
+- Integraremos el AdminLte:
+	composer require jeroennoten/laravel-adminlte
+
+- Instalaremos los recursos de AdminLte:
+	php artisan adminlte:install
+
+- Instalaremos el paquete de autentificacion:
+	composer require laravel/ui
+
+- Creamos la vistas de login y register:
+	php artisan ui bootstrap --auth
+
+- Reemplazamos nuestras vistas de login y register por el de AdminLte:
+	php artisan adminlte:install --only=auth_views
+
+- Corremos la aplicación: php artisan serve
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
