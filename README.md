@@ -28,6 +28,19 @@
 
 - Corremos la aplicación: php artisan serve
 
+# Migraciones
+- Crearemos la base de datos que llevara de nombre: juegoAdivinador.
+
+- Una vez creado lo colocamos en la conexion que se encontrara en el env.
+
+- Creamos su modelo con su respectiva migracion y controlador: php artsan make:model Point -mc
+
+- Colocamos unos campos en la migracion creada:
+
+	[![Screenshot-1.png](https://i.postimg.cc/B6kMBhWV/Screenshot-1.png)](https://postimg.cc/LYktH38t)
+
+- Luego lo migramos: php artisan migrate
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
