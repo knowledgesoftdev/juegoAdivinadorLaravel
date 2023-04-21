@@ -29,7 +29,7 @@
 
 - Colocamos unos campos en la migracion creada:
 
-[![Screenshot-1.png](https://i.postimg.cc/ryhn6LkW/Screenshot-1.png)](https://postimg.cc/0rwdmFr2)
+    [![Screenshot-1.png](https://i.postimg.cc/ryhn6LkW/Screenshot-1.png)](https://postimg.cc/0rwdmFr2)
 
 - Luego lo migramos: php artisan migrate
 
@@ -41,10 +41,10 @@
 
 - El codigo que cambiaremos en resources->views->home.blade.php:
 
-[![fonto1.png](https://i.postimg.cc/sxds5Qc1/fonto1.png)](https://postimg.cc/YG35HSTw)
+    [![fonto1.png](https://i.postimg.cc/sxds5Qc1/fonto1.png)](https://postimg.cc/YG35HSTw)
 
 - Luego vamos config->adminlte.php en la linea 292 'menu' reemplazamos por este código:
 
-[![foto2.png](https://i.postimg.cc/JzydZ1TB/foto2.png)](https://postimg.cc/DSTgKK32)
+    [![foto2.png](https://i.postimg.cc/JzydZ1TB/foto2.png)](https://postimg.cc/DSTgKK32)
 
 
