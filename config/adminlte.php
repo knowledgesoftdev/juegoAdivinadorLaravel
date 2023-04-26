@@ -297,19 +297,19 @@ return [
         ['header' => 'Nuestros Juegos'],
         [   
             'text' => 'Adivina el número',
-            'url'  => 'admin/settings',
+            'url'  => 'admin/points',
             'icon' => 'fas fa-sharp fa-solid fa-hashtag',
         ],
 
 
         ['header' => 'Configuraciones de Usuario'],
         [   
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Perfil',
+            'url'  =>'admin/users',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
+            'text' => 'Cambiar Contraseña',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],       
@@ -396,11 +396,11 @@ return [
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
                 ],
             ],

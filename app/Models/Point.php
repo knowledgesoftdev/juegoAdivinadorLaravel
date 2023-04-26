@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Point extends Model
 {
     use HasFactory;
+
+    //relacion de muchos a uno
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
