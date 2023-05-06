@@ -9,6 +9,11 @@ class Point extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'points',
+    ];
+
     //relacion de muchos a uno
     public function user(){
         return $this->belongsTo(User::class);

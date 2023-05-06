@@ -27,3 +27,5 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::resource('admin/users',UserController::class)->names('users');
 
 Route::get('admin/points',[PointController::class,'index']);
+
+Route::post('admin/points/guardar',[PointController::class,'guardarDatos'])->name('guardar-puntuacion');;

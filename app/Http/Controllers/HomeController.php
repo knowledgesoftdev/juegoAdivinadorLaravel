@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Point;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $usuarioAuth=Auth::user()->id;
+        $points=Point::where('user_id',$usuarioAuth)->orderBy('id','desc')->get();
+        return view('home',compact('points'));
     }
 }

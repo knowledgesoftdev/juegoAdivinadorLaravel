@@ -11,7 +11,10 @@
         <div class="col-12">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Número Escondido</h3>
+                    <div class="d-flex justify-content-between">
+                        <h3 class="card-title">Número Escondido</h3>
+                        <h3 class="card-title">Puntos: <span id="points">{{ $totalSumaUsuario === '0.0' ? '0.0' : $totalSumaUsuario }}</span></h3>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="group cartas"></div>
@@ -67,28 +70,10 @@
 
     @section('js')
         <script>
-            const btnEditar = document.querySelector("#btnEditar")
-            const inputName = document.querySelector("#nameUser")
-            const emailUser = document.querySelector("#emailUser")
-            const userName = document.querySelector("#userName")
-            const btnGuardar = document.querySelector("#btnGuardar")
-
-
-            habilitarCampos = () => {
-                inputName.disabled = false
-                emailUser.disabled = false
-                userName.disabled = false
-                btnGuardar.disabled = false
-                inputName.focus()
-            }
-
-            btnEditar.addEventListener("click", habilitarCampos)
-        </script>
-
-        <script>
             //OBTENIENDO LOS IDS
             const divCartas = document.querySelector(".cartas");
             const divs = document.querySelector(".estiloDiv");
+            const point=document.querySelector("#points")
 
             //FUNCIONES
             crearDivs = () => {
@@ -108,23 +93,24 @@
                                 'Enhorabuena, encontrastes el número, a que no puedes volver a intentarlo!',
                                 'success'
                             )
+                            guardarPuntos();
                             reiniciarJuego();
                         }
 
                         if (i > numAleatorio) {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Oops...',
-                                text: 'Menos!',
-                            })
+                            Swal.fire(
+                                'Oops...',
+                                'Menos..!',
+                                'error',
+                            )
                         }
 
                         if (i < numAleatorio) {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Oops...',
-                                text: 'Más!',
-                            })
+                            Swal.fire(
+                                'Oops...',
+                                'Más..!',
+                                'error',
+                            )
                         }
                     });
                 }
@@ -137,5 +123,27 @@
 
             //EVENTOS
             window.addEventListener("load", crearDivs);
+
+            guardarPuntos = () => {
+                
+                $.ajax({
+                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                    type: 'POST',
+                    url: '{{ route('guardar-puntuacion') }}',
+                    data: {
+                        puntos: 0.5
+                    },
+                    success: function(response) {
+                        valorPuntosResponse=parseFloat(response.points);
+                        valorPuntosSpan=parseFloat(points.textContent);
+
+                        points.textContent=valorPuntosResponse+valorPuntosSpan
+                       
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error al guardar los puntos: ' + error);
+                    }
+                });
+            }
         </script>
     @stop
