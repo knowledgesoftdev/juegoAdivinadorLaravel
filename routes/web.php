@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PointController;
 use App\Http\Controllers\UserController;
 
@@ -28,4 +29,6 @@ Route::resource('admin/users',UserController::class)->names('users');
 
 Route::get('admin/points',[PointController::class,'index']);
 
-Route::post('admin/points/guardar',[PointController::class,'guardarDatos'])->name('guardar-puntuacion');;
+Route::post('admin/points/guardar',[PointController::class,'guardarDatos'])->name('guardar-puntuacion');
+
+Route::put("admin/usersImg/save",[ImageController::class,'saveImage'])->name("save-image");
